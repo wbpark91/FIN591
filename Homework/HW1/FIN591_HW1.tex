@@ -1,0 +1,221 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{enumerate}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.5} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkTitle)} % Top center header
+%%\rhead{\firstxmark} 
+\rhead{} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+%----------------------------------------------------------------------------------------
+%	EXPECTATION AND VARIANCE OPERATOR
+%----------------------------------------------------------------------------------------
+ \newcommand{\E}{\mathrm{E}} 
+ \newcommand{\Var}{\mathrm{Var}}
+ \newcommand{\Cov}{\mathrm{Cov}}
+ \newcommand{\Corr}{\mathrm{Corr}}
+ 
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Homework\ \#1} % Assignment title
+\newcommand{\hmwkDueDate}{Monday,\ February\ 5,\ 2018} % Due date
+\newcommand{\hmwkClass}{FIN\ 591} % Course/class
+\newcommand{\hmwkClassTime}{12:30pm} % Class/lecture time
+\newcommand{\hmwkAuthorName}{Wanbae Park} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%%\newpage
+%%\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+	\begin{enumerate}[a.]	\label{prob(a)}
+		%% Problem 1-a.
+		\item
+		\textit{(Short selling restriction)} If an investor cannot sell short risky asset, the amount of investment in risky asset should be nonnegative. Therefore, the maximization problem is stated as the following equation.
+		\begin{equation} 	\label{eq:prob1-a: max 1}
+		\begin{aligned}
+			& \max_A \E[U(\widetilde{W})] = \max_A \E[U(W_0 (1 + r_f) + A(\widetilde{r} - r_f))] \\
+			& \text{subject to } A \geq 0
+		\end{aligned}
+		\end{equation}
+		
+		The maximization problem (\ref{eq:prob1-a: max 1}) is equivalent to
+		\begin{equation}	\label{eq:prob1-a: max 2}
+			\max_A \E[U(W_0 (1 + r_f) + A(\widetilde{r} - r_f))] + \lambda A
+		\end{equation}
+		By applying Kuhn-Tucker conditions, the value of $A$ maximizing expected utility must must satisfy the following conditions.
+		
+		%% First Order Conditions
+		\begin{equation}	\label{eq:prob1-a: FOC}
+		\begin{aligned}
+			\E[U'(\widetilde{W})(\widetilde{r} - r_f)] + \lambda = 0		\\
+			A \geq 0	\\
+			A \E[U'(\widetilde{W})(\widetilde{r} - r_f)] = 0
+		\end{aligned}
+		\end{equation}
+		%% Problem 1-b.
+		\item
+		A restriction of riskless borrowing implies that the dollar amount of investment in riskless asset should be nonnegative. It leads to the following maximization problem.
+		\begin{equation}	\label{eq:prob1-b: max 1}
+		\begin{aligned}
+			& \max_A \E[U(\widetilde{W})] = \max_A \E[U(W_0 (1 + r_f) + A(\widetilde{r} - r_f))] \\
+			& \text{subject to } W_0 - A \geq 0			
+		\end{aligned}
+		\end{equation}
+		
+		From the analogy of problem 1.a, the value of $A$ which maximizes expected utility must satisfy the following first order conditions.
+		\begin{equation}	\label{eq:prob1-b: FOC}
+		\begin{aligned}
+			\E[U'(\widetilde{W})(\widetilde{r} - r_f)] + \lambda = 0		\\
+			W_0 - A \geq 0	\\
+			(W_0 - A) \E[U'(\widetilde{W})(\widetilde{r} - r_f)] = 0
+		\end{aligned}
+		\end{equation}
+	\end{enumerate}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 2
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+
+\end{homeworkProblem}
+%----------------------------------------------------------------------------------------
+%	PROBLEM 3
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+
+\end{homeworkProblem}
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+	\begin{enumerate}[a.]
+		%% Problem 4-a.
+		\item
+		%% Problem 4-b.
+		\item
+	\end{enumerate}
+\end{homeworkProblem}
+\end{document}

@@ -238,12 +238,28 @@
 		\end{equation}
 %----------------------------------------------------------------------------------------
 		%% Standard Deviation of Tangency Portfolio
-		\begin{equation}
+		\begin{equation}	\label{eq:prob4-a st.dev}
 		\begin{aligned}
 			\sigma_t^2 	&= w'Vw		\\
 						&= \lambda^2 (\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)	\\
-						&= \frac{(\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}{(e'V^{-1}(\overline{R} - R_fe))^2}
+						&= \frac{(\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}{(e'V^{-1}(\overline{R} - R_fe))^2}	\\
+			\Rightarrow \sigma_t		&= \frac{\sqrt{\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}}{e'V^{-1}(\overline{R} - R_fe)}
 		\end{aligned}
+		\end{equation}
+%----------------------------------------------------------------------------------------
+		Combining equation (\ref{eq:prob4-a return}) and (\ref{eq:prob4-a st.dev}), Sharpe ratio of the portfolio is calculated as
+		%% Sharpe Ratio of Tangency Portfolio
+		\begin{equation}	\label{eq:prob4-a sharpe ratio}
+		\begin{aligned}
+			\frac{\overline{R}_t - R_f}{\sigma_t^2} 	&= {\frac{(\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}{e'V^{-1}(\overline{R} - R_fe)}} / {\frac{\sqrt{(\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}}{e'V^{-1}(\overline{R} - R_fe)}}	\\
+											&= \sqrt{(\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}
+		\end{aligned}
+		\end{equation}
+%----------------------------------------------------------------------------------------
+		Plug $\overline{R} - R_fe = (\overline{R}_1 - R_f, \overline{R}_2 - R_f)'$ and $V^{-1} = \begin{bmatrix} {1 / \sigma_1^2} & {-1 / \sigma_1 \sigma_2} \\ {-1 / \sigma_1 \sigma_2}& {1 / \sigma_2^2} \end{bmatrix} / (1 - \rho^2)$ into equation (\ref{eq:prob4-a sharpe ratio}), we can get the following result which is desired.
+		%% Sharpe Ratio(s1, s2, rho denominated)
+		\begin{equation}	\label{eq:prob4-a sharpe ratio(s1,s2,rho)}
+			\frac{\overline{R}_t - R_f}{\sigma_t^2} = \frac{s_1 - s_2}{\sqrt{1 - \rho^2}}
 		\end{equation}
 		%% Problem 4-b.
 		\item

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.8.4)  1 FEB 2018 18:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.8.4)  1 FEB 2018 20:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -251,10 +251,10 @@ e
 AED: lastpage setting LastPage
 [3] (./FIN591_HW1.aux) ) 
 Here is how much of TeX's memory you used:
- 2544 strings out of 492990
- 34382 string characters out of 6132637
- 199119 words of memory out of 5000000
- 6071 multiletter control sequences out of 15000+600000
+ 2547 strings out of 492990
+ 34462 string characters out of 6132637
+ 200144 words of memory out of 5000000
+ 6074 multiletter control sequences out of 15000+600000
  9667 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,10n,43p,1600b,242s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -269,7 +269,7 @@ m/cmr9.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
 msy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 10.pfb>
-Output written on FIN591_HW1.pdf (3 pages, 111403 bytes).
+Output written on FIN591_HW1.pdf (3 pages, 113689 bytes).
 PDF statistics:
  54 PDF objects out of 1000 (max. 8388607)
  38 compressed objects within 1 object stream

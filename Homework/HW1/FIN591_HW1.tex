@@ -151,21 +151,22 @@
 \begin{homeworkProblem}
 	\begin{enumerate}[a.]	\label{prob(a)}
 		%% Problem 1-a.
-		\item
-		\textit{(Short selling restriction)} If an investor cannot sell short risky asset, the amount of investment in risky asset should be nonnegative. Therefore, the maximization problem is stated as the following equation.
+		\item \textit{(Short selling restriction)}
+		If an investor cannot sell short risky asset, the amount of investment in risky asset should be nonnegative. Therefore, the maximization problem is stated as the following equation.
 		\begin{equation} 	\label{eq:prob1-a: max 1}
 		\begin{aligned}
 			& \max_A \E[U(\widetilde{W})] = \max_A \E[U(W_0 (1 + r_f) + A(\widetilde{r} - r_f))] \\
 			& \text{subject to } A \geq 0
 		\end{aligned}
 		\end{equation}
-		
 		The maximization problem (\ref{eq:prob1-a: max 1}) is equivalent to
+%--------------------------------------------------------------------------------------------------------------
+		%% Maximization Problem
 		\begin{equation}	\label{eq:prob1-a: max 2}
 			\max_A \E[U(W_0 (1 + r_f) + A(\widetilde{r} - r_f))] + \lambda A
 		\end{equation}
 		By applying Kuhn-Tucker conditions, the value of $A$ maximizing expected utility must must satisfy the following conditions.
-		
+%--------------------------------------------------------------------------------------------------------------
 		%% First Order Conditions
 		\begin{equation}	\label{eq:prob1-a: FOC}
 		\begin{aligned}
@@ -174,17 +175,22 @@
 			A \E[U'(\widetilde{W})(\widetilde{r} - r_f)] = 0
 		\end{aligned}
 		\end{equation}
+%--------------------------------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------------------------------
 		%% Problem 1-b.
-		\item
+		\item \textit{(Restriction of riskless borrowing)}
 		A restriction of riskless borrowing implies that the dollar amount of investment in riskless asset should be nonnegative. It leads to the following maximization problem.
+%--------------------------------------------------------------------------------------------------------------
+		%% Maximization Problem
 		\begin{equation}	\label{eq:prob1-b: max 1}
 		\begin{aligned}
 			& \max_A \E[U(\widetilde{W})] = \max_A \E[U(W_0 (1 + r_f) + A(\widetilde{r} - r_f))] \\
 			& \text{subject to } W_0 - A \geq 0			
 		\end{aligned}
 		\end{equation}
-		
+%--------------------------------------------------------------------------------------------------------------
 		From the analogy of problem 1.a, the value of $A$ which maximizes expected utility must satisfy the following first order conditions.
+		%% First Order Conditions
 		\begin{equation}	\label{eq:prob1-b: FOC}
 		\begin{aligned}
 			\E[U'(\widetilde{W})(\widetilde{r} - r_f)] + \lambda = 0		\\
@@ -199,7 +205,7 @@
 %	PROBLEM 2
 %----------------------------------------------------------------------------------------
 \begin{homeworkProblem}
-
+	It does not necessary that two frontier portfolios which creates other efficient portfolio must be efficient. To explain it, let us consider a simple economy. In the economy, there are two assets, whose return and variance is denoted as $r_i$, $\sigma_i^2$, $i = 1, 2$, respectively. Let $\rho$ denote the correlation coefficient between $r_1$ and $r_2$. Now, construct a portfolio such that $r_p = w_1 r_1 + (1 - w_1) r_2$. In this case, the expected return of the portfolio is $w_1 \E[r_1] + (1 - w_2) \E[r_2]$, which is exactly on the straight line connecting $\E[r_1]$ to $\E[r_2]$ because it is just a weighted average of expected returns. However, since $\Var[r_p] = \Var[w_1 r_1 + (1 - w_1) r_2] = w_1^2 \sigma_1^2 + (1 - w_1)^2 \sigma_2^2 + \rho \sigma_1 \sigma_2$, variance of portfolio can be greater or less than weighted average of individual variances, depending on correlation coefficient, $\rho$. Therefore, if we properly choose portfolios which have negative correlation, we can create a portfolio which is on \underline{slightly left} to the straight line which connects $(\E[r_1], \sigma_1)$ and $(\E[r_2], \sigma_2)$ on $(\E[r], \sigma)$-space. (Actually, it justifies diversification effect.) It gives an intuition that we can create minimum variance portfolio(or similar portfolios) by appropriately choosing an efficient portfolio and an inefficient portfolio. Since minimum variance portfolio is also an efficient portfolio, it is possible to generate an efficient portfolio using two portfolios even if they are not both efficient.
 \end{homeworkProblem}
 %----------------------------------------------------------------------------------------
 %	PROBLEM 3
@@ -214,6 +220,23 @@
 	\begin{enumerate}[a.]
 		%% Problem 4-a.
 		\item
+		Let $w = (w_1, w_2)'$ denote weight amounts of investment in risky asset. Then Sharpe ratio of a portfolio including these assets can be represented as $\frac{\overline{R}_p - R_f}{\sqrt{w'Vw}}$, where $\overline{R}_p = w'\overline{R} + (1-w'e)R_f$, $e = (1, 1)'$. Therefore, if there is a target portfolio return $\overline{R}_p$, the maximization problem can be stated as equation (\ref{eq: prob4-a: max problem}), and it is equivalent to minimization problem (\ref{eq: prob4-a: min problem}).
+%----------------------------------------------------------------------------------------
+		%% Maximization Problem 4.a-1
+		\begin{equation}	\label{eq: prob4-a: max problem}
+		\begin{aligned}
+			& \max_w \frac{\overline{R}_p - R_f}{\sqrt{w'Vw}}	\\
+			& \text{subject to } \overline{R}_p = w'\overline{R} + (1-w'e)R_f
+		\end{aligned}
+		\end{equation}
+%----------------------------------------------------------------------------------------
+		%% Minimization Problem 4.a-1
+		\begin{equation}	\label{eq: prob4-a: min problem}
+		\begin{aligned}
+			& \min_w \frac{\sqrt{w'Vw}}{\overline{R}_p - R_f}	\\
+			& \text{subject to } \overline{R}_p = w'\overline{R} + (1 - w'e)R_f
+		\end{aligned}
+		\end{equation}
 		%% Problem 4-b.
 		\item
 	\end{enumerate}

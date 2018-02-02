@@ -220,21 +220,29 @@
 	\begin{enumerate}[a.]
 		%% Problem 4-a.
 		\item
-		Let $w = (w_1, w_2)'$ denote weight amounts of investment in risky asset. Then Sharpe ratio of a portfolio including these assets can be represented as $\frac{\overline{R}_p - R_f}{\sqrt{w'Vw}}$, where $\overline{R}_p = w'\overline{R} + (1-w'e)R_f$, $e = (1, 1)'$. Therefore, if there is a target portfolio return $\overline{R}_p$, the maximization problem can be stated as equation (\ref{eq: prob4-a: max problem}), and it is equivalent to minimization problem (\ref{eq: prob4-a: min problem}).
+		Since risk-free asset does exist, the efficient frontier is a straight line whose intercept is risk-free rate. In addition, it is tangent to the frontier including only risky assets. (Even if there are only two risky assets, there exist a curve-shaped frontier by two-fund separation theorem.) Because Sharpe ratio is a slope of frontier, it is maximized when the frontier is efficient. Therefore, in order to derive maximum Sharpe ratio, it suffices to derive $(r_t, \sigma_t)$, which is expected return and volatility of tangency portfolio. Since the sum of weight of risky asset on tangency portfolio is equal to 1, the following equation holds.
 %----------------------------------------------------------------------------------------
-		%% Maximization Problem 4.a-1
-		\begin{equation}	\label{eq: prob4-a: max problem}
+		%% Weight of Tangency Portfolio
+		\begin{equation}	\label{eq:prob4-a weight}
 		\begin{aligned}
-			& \max_w \frac{\overline{R}_p - R_f}{\sqrt{w'Vw}}	\\
-			& \text{subject to } \overline{R}_p = w'\overline{R} + (1-w'e)R_f
+			e'w = e'[\lambda V^{-1} (\overline{R} - R_fe)] = 1	\\
+			\Rightarrow \lambda = [e'V^{-1}(\overline{R} - R_fe)]^{-1}
 		\end{aligned}
 		\end{equation}
 %----------------------------------------------------------------------------------------
-		%% Minimization Problem 4.a-1
-		\begin{equation}	\label{eq: prob4-a: min problem}
+		%% Return of Tangency Portfolio
+		\begin{equation}	\label{eq:prob4-a return}
 		\begin{aligned}
-			& \min_w \frac{\sqrt{w'Vw}}{\overline{R}_p - R_f}	\\
-			& \text{subject to } \overline{R}_p = w'\overline{R} + (1 - w'e)R_f
+			\overline{R}_t = R_f + \frac{(\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}{e'V^{-1}(\overline{R} - R_fe)}
+		\end{aligned}
+		\end{equation}
+%----------------------------------------------------------------------------------------
+		%% Standard Deviation of Tangency Portfolio
+		\begin{equation}
+		\begin{aligned}
+			\sigma_t^2 	&= w'Vw		\\
+						&= \lambda^2 (\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)	\\
+						&= \frac{(\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}{(e'V^{-1}(\overline{R} - R_fe))^2}
 		\end{aligned}
 		\end{equation}
 		%% Problem 4-b.

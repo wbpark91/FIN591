@@ -211,7 +211,7 @@
 %	PROBLEM 3
 %----------------------------------------------------------------------------------------
 \begin{homeworkProblem}
-
+	Return used to mean-variance analysis and CAPM should be nominal rate. It is because risk-free rate is adjusted(subtracted) in both mean-variance analysis and CAPM. Since risk-free rate already contain information of inflation(i.e. risk-free rate increases when inflation occurs, and decreases when deflation occurs), if we use real rate for mean-variance analysis or CAPM, inflation is "over-adjusted" in the analysis, and therefore it goes wrong. Hence, nominal returns should be used.
 \end{homeworkProblem}
 %----------------------------------------------------------------------------------------
 %	PROBLEM 4
@@ -220,49 +220,109 @@
 	\begin{enumerate}[a.]
 		%% Problem 4-a.
 		\item
-		Since risk-free asset does exist, the efficient frontier is a straight line whose intercept is risk-free rate. In addition, it is tangent to the frontier including only risky assets. (Even if there are only two risky assets, there exist a curve-shaped frontier by two-fund separation theorem.) Because Sharpe ratio is a slope of frontier, it is maximized when the frontier is efficient. Therefore, in order to derive maximum Sharpe ratio, it suffices to derive $(r_t, \sigma_t)$, which is expected return and volatility of tangency portfolio. Since the sum of weight of risky asset on tangency portfolio is equal to 1, the following equation holds.
+		Let $x$ and $y$ denote weights of risky asset 1 and 2, respectively. Then since the expected return and variance of portfolio is $\overline{R}_p = x\overline{R}_1 + y\overline{R}_2 + (1 - x - y)R_f$, $\sigma^2_p = x^2 \sigma^2_1 + y^2 \sigma^2_2 +2xy\sigma_1 \sigma_2 \rho$, respectively, the Sharpe ratio of portfolio can be represented as follows.
 %----------------------------------------------------------------------------------------
-		%% Weight of Tangency Portfolio
-		\begin{equation}	\label{eq:prob4-a weight}
+		%% Sharpe ratio representation
+		\begin{equation}	\label{eq:prob4-a: Se representation}
 		\begin{aligned}
-			e'w = e'[\lambda V^{-1} (\overline{R} - R_fe)] = 1	\\
-			\Rightarrow \lambda = [e'V^{-1}(\overline{R} - R_fe)]^{-1}
+			s_e 	&= \frac{\overline{R}_p - R_f}{\sigma_p}	\\
+				&= \frac{x\overline{R}_1 + y\overline{R}_2 - (x + y)R_f}{\sqrt{x^2 \sigma^2_1 + y^2 \sigma^2_2 +2xy\sigma_1 \sigma_2 \rho}}	\\
+				&= \frac{x \sigma_1 s_1 + y \sigma_2 s_2}{\sqrt{x^2 \sigma^2_1 + y^2 \sigma^2_2 +2xy\sigma_1 \sigma_2 \rho}}
 		\end{aligned}
 		\end{equation}
 %----------------------------------------------------------------------------------------
-		%% Return of Tangency Portfolio
-		\begin{equation}	\label{eq:prob4-a return}
+		Let $A_1 = x \sigma_1 s_1 + y \sigma_2 s_2$ and $A_2 = (x^2 \sigma^2_1 + y^2 \sigma^2_2 +2xy\sigma_1 \sigma_2 \rho)^{-\frac{1}{2}}$. Then $s_e$ can be represented as $A_1 A_2$. By taking derivative to $s_e$ with respect to $x$ and $y$, we can obtain first order conditions as follows.
+%----------------------------------------------------------------------------------------
+		%% First order condition
+		\begin{equation}	\label{eq:prob4-a: FOC1}
 		\begin{aligned}
-			\overline{R}_t = R_f + \frac{(\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}{e'V^{-1}(\overline{R} - R_fe)}
+			\frac{\partial S_e}{\partial x} &= \frac{\partial A_1}{\partial x}A_2 + \frac{\partial A_2}{\partial x}A_1	\\
+			\frac{\partial S_e}{\partial y} &= \frac{\partial A_1}{\partial y}A_2 + \frac{\partial A_2}{\partial y}A_1
 		\end{aligned}
 		\end{equation}
 %----------------------------------------------------------------------------------------
-		%% Standard Deviation of Tangency Portfolio
-		\begin{equation}	\label{eq:prob4-a st.dev}
+		\begin{equation}	\label{eq:prob4-a: FOC2}
 		\begin{aligned}
-			\sigma_t^2 	&= w'Vw		\\
-						&= \lambda^2 (\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)	\\
-						&= \frac{(\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}{(e'V^{-1}(\overline{R} - R_fe))^2}	\\
-			\Rightarrow \sigma_t		&= \frac{\sqrt{\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}}{e'V^{-1}(\overline{R} - R_fe)}
+			\frac{\partial A_1}{\partial x} 	&= \sigma_1 s_1	\\
+			\frac{\partial A_1}{\partial y} 	&= \sigma_2 s_2	\\
+			\frac{\partial A_2}{\partial x} 	&= -\frac{1}{2}(x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho)^{-\frac{3}{2}} (2x \sigma^2_1 + 2y \sigma_1 \sigma_2 \rho)	\\
+									&= -(x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho)^{-\frac{3}{2}} (x \sigma^2_1 + y \sigma_1 \sigma_2 \rho)	\\
+			\frac{\partial A_2}{\partial y}	&= -\frac{1}{2}(x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho)^{-\frac{3}{2}} (2y \sigma^2_2 + 2x \sigma_1 \sigma_2 \rho)	\\
+									&= -(x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho)^{-\frac{3}{2}} (y \sigma^2_2 + x \sigma_1 \sigma_2 \rho)
 		\end{aligned}
 		\end{equation}
 %----------------------------------------------------------------------------------------
-		Combining equation (\ref{eq:prob4-a return}) and (\ref{eq:prob4-a st.dev}), Sharpe ratio of the portfolio is calculated as
-		%% Sharpe Ratio of Tangency Portfolio
-		\begin{equation}	\label{eq:prob4-a sharpe ratio}
+		Plugging the results of equation (\ref{eq:prob4-a: FOC2}) into equation (\ref{eq:prob4-a: FOC1}) we can get equations as follows.
+%----------------------------------------------------------------------------------------	
+		%% First order condition -- Se
+		\begin{equation}	\label{eq:prob4-a: FOC-Se}
 		\begin{aligned}
-			\frac{\overline{R}_t - R_f}{\sigma_t^2} 	&= {\frac{(\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}{e'V^{-1}(\overline{R} - R_fe)}} / {\frac{\sqrt{(\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}}{e'V^{-1}(\overline{R} - R_fe)}}	\\
-											&= \sqrt{(\overline{R} - R_fe)' V^{-1} (\overline{R} - R_fe)}
+			\frac{\partial S_e}{\partial x} 	&= \sigma_1 s_1 (x^2 \sigma^2_1 + y^2 \sigma^2_2 +2xy\sigma_1 \sigma_2 \rho)^{-\frac{1}{2}} -(x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho)^{-\frac{3}{2}} (x \sigma^2_1 + y \sigma_1 \sigma_2 \rho) (x \sigma_1 s_1 + y \sigma_2 s_2)	\\
+									&= (x^2 \sigma^2_1 + y^2 \sigma^2_2 +2xy\sigma_1 \sigma_2 \rho)^{-\frac{1}{2}} [\sigma_1 s_1 - (x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho)^{-1} (x \sigma^2_1 + y \sigma_1 \sigma_2 \rho) (x \sigma_1 s_1 + y \sigma_2 s_2)] \\ &= 0	\\
+			\frac{\partial S_e}{\partial y} 	&= \sigma_2 s_2 (x^2 \sigma^2_1 + y^2 \sigma^2_2 +2xy\sigma_1 \sigma_2 \rho)^{-\frac{1}{2}} - (x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho)^{-\frac{3}{2}} (y \sigma^2_2 + x \sigma_1 \sigma_2 \rho) (x \sigma_1 s_1 + y \sigma_2 s_2)	\\
+									&= (x^2 \sigma^2_1 + y^2 \sigma^2_2 +2xy\sigma_1 \sigma_2 \rho)^{-\frac{1}{2}} [\sigma_2 s_2 - (x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho)^{-1} (y \sigma^2_2 + x \sigma_1 \sigma_2 \rho) (x \sigma_1 s_1 + y \sigma_2 s_2)	\\ &= 0
+		\end{aligned}
+		\end{equation}	
+%----------------------------------------------------------------------------------------	
+		Since we assume that $x^2 \sigma^2_1 + y^2 \sigma^2_2 +2xy\sigma_1 \sigma_2 \rho \neq 0$, equation (\ref{eq:prob4-a: FOC-Se}) is reduced to equation (\ref{eq:prob4-a: FOC-Se2}).
+%----------------------------------------------------------------------------------------	
+		%% First order condition -- Se2
+		\begin{equation}	\label{eq:prob4-a: FOC-Se2}
+		\begin{aligned}
+			\sigma_1 s_1 - (x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho)^{-1} (x \sigma^2_1 + y \sigma_1 \sigma_2 \rho) (x \sigma_1 s_1 + y \sigma_2 s_2) = 0	\\
+			\sigma_2 s_2 - (x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho)^{-1} (y \sigma^2_2 + x \sigma_1 \sigma_2 \rho) (x \sigma_1 s_1 + y \sigma_2 s_2) = 0
 		\end{aligned}
 		\end{equation}
-%----------------------------------------------------------------------------------------
-		Plug $\overline{R} - R_fe = (\overline{R}_1 - R_f, \overline{R}_2 - R_f)'$ and $V^{-1} = \begin{bmatrix} {1 / \sigma_1^2} & {-1 / \sigma_1 \sigma_2} \\ {-1 / \sigma_1 \sigma_2}& {1 / \sigma_2^2} \end{bmatrix} / (1 - \rho^2)$ into equation (\ref{eq:prob4-a sharpe ratio}), we can get the following result which is desired.
-		%% Sharpe Ratio(s1, s2, rho denominated)
-		\begin{equation}	\label{eq:prob4-a sharpe ratio(s1,s2,rho)}
-			\frac{\overline{R}_t - R_f}{\sigma_t^2} = \frac{s_1 - s_2}{\sqrt{1 - \rho^2}}
+		Multiplying $x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho$ to both sides of equation (\ref{eq:prob4-a: FOC-Se2}), we obtain (\ref{eq:prob4-a: FOC-Se:x}) and (\ref{eq:prob4-a: FOC-Se:y}).
+		%% First order condition -- Se3
+		\begin{equation}
+		\begin{aligned}		\label{eq:prob4-a: FOC-Se:x}
+			&\sigma_1 s_1 (x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho) - (x \sigma^2_1 + y \sigma_1 \sigma_2 \rho) (x \sigma_1 s_1 + y \sigma_2 s_2) 	\\
+				&= y^2 \sigma_1 \sigma^2_2 (s_1 - s_2 \rho) - xy \sigma^2_1 \sigma_2 (s_2 - s_1 \rho) = 0	\\
+		\end{aligned}
 		\end{equation}
+		\begin{equation}
+		\begin{aligned}		\label{eq:prob4-a: FOC-Se:y}
+			&\sigma_2 s_2 (x^2 \sigma^2_1 + y^2 \sigma^2_2 + 2xy \sigma_1 \sigma_2 \rho) - (y \sigma^2_2 + x \sigma_1 \sigma_2 \rho) (x \sigma_1 s_1 + y \sigma_2 s_2) 	\\
+				&= x^2 \sigma^2_1 \sigma_2 (s_2 - s_1 \rho) - xy \sigma_1 \sigma^2_2 (s_1 - s_2 \rho) = 0
+		\end{aligned}
+		\end{equation}
+%----------------------------------------------------------------------------------------	
+		By adding (\ref{eq:prob4-a: FOC-Se:x}) to (\ref{eq:prob4-a: FOC-Se:y}) we can obtain (\ref{eq:prob4-a: FOC-sum}).
+		%% First order condition -- Sum
+		\begin{equation}	\label{eq:prob4-a: FOC-sum}
+		\begin{aligned}
+			(x^2 & \sigma^2_1 \sigma_2 - xy \sigma^2_1 \sigma_2) (s_2 - s_1 \rho) + (y^2 \sigma_1 \sigma^2_2 - xy \sigma_1 \sigma^2_2) (s_1 - s_2 \rho) \\
+			 	&= x \sigma^2_1 \sigma_2 (x - y) (s_2 - s_1 \rho) + y \sigma_1 \sigma^2_2 (y - x) (s_1 - s_2 \rho)	\\
+				&= \sigma_1 \sigma_2 (x - y) [x \sigma_1 (s_2 - s_1 \rho) - y \sigma_2 (s_1 - s_2 \rho)] = 0
+		\end{aligned}
+		\end{equation}
+%----------------------------------------------------------------------------------------	
+		Assuming $x \neq y$, equation (\ref{eq:prob4-a: FOC-sum}) reduces to (\ref{eq:prob4-a: weight x}), which indicates optimal weight on risky asset 1.
+%----------------------------------------------------------------------------------------	
+		%% Optimal weight on risky asset 1
+		\begin{equation}	\label{eq:prob4-a: weight x}
+		\begin{aligned}
+			x &\sigma_1 (s_2 - s_1 \rho) - y \sigma_2 (s_1 - s_2 \rho) = 0	\\
+			&\Rightarrow x^* = \frac{y \sigma_2 (s_1 - s_2 \rho)}{\sigma_1 (s_2 - s_1 \rho)}
+		\end{aligned}
+		\end{equation}
+%----------------------------------------------------------------------------------------	
+		Plug $x^*$ into equation (\ref{eq:prob4-a: Se representation}), we can get the maximum Sharpe ratio as follows.
+		%% Maximized Sharpe raio
+		\begin{equation}	\label{eq:prob4-a: max sharpe}
+		\begin{aligned}
+			&s_e^*	 = \frac{x^* \sigma_1 s_1 + y \sigma_2 s_2}{\sqrt{x^{*2} \sigma^2_1 + y^2 \sigma^2_2 +2x^*y\sigma_1 \sigma_2 \rho}}	\\
+			&x^* \sigma_1 s_1 + y \sigma_2 s_2	= \frac{y \sigma_2 (s_1 - s_2 \rho)}{\sigma_1 (s_2 - s_1 \rho)} \sigma_1 s_1 + y \sigma_2 s_2		\\
+										&= y \sigma_2 \frac{s_1 - s_2 \rho}{s_2 - s_1 \rho} + s_2 ~~ \text(\textit{numerator})	\\
+			& \sqrt{x^{*2} \sigma^2_1 + y^2 \sigma^2_2 +2x^*y\sigma_1 \sigma_2 \rho} = y \sigma_2 \sqrt{(\frac{s_1 - s_2 \rho}{s_2 - s_1 \rho})^2 + 2 \frac{s_1 - s_2 \rho}{s_2 - s_1 \rho} + 1} ~~ \text(\textit{denominator})	\\
+			& \Rightarrow s_e^* = \frac{s_1^2 - 2s_1 s_2 \rho + s_2^2}{[(s_1 - s_2 \rho)^2 + 2(s_1 - s_2 \rho)(s_2 - s_1 \rho)\rho + (s_2 - s_1 \rho)^2]^{\frac{1}{2}}}
+		\end{aligned}
+		\end{equation}
+%----------------------------------------------------------------------------------------	
 		%% Problem 4-b.
 		\item
-	\end{enumerate}
+		From 4.a, we derived that maximum Sharpe ratio is attained if $x = \frac{y \sigma_2 (s_1 - s_2 \rho)}{\sigma_1 (s_2 - s_1 \rho)}$. Therefore, since $\sigma_1$ and $\sigma_2$ are both positive, in order to achieve maximum Sharpe ratio under constraints that $x > 0$ and $y > 0$, it is necessary that $\frac{s_1 - s_2 \rho}{s_2 - s_1 \rho}$ should be positive.
+		\end{enumerate}
 \end{homeworkProblem}
 \end{document}

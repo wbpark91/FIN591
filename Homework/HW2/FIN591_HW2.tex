@@ -151,7 +151,47 @@
 \begin{homeworkProblem}
 \begin{enumerate}[a.]
 	\item		%% Problem 1.a.
+	Since there is only one risky asset, consumption at date 1 $C_1$ is represented as $C_1 = y_1 + (W_0 + y_0 - C_0)(R_f + W(R - R_f))$. By applying first order condition, the following equations should hold.
+%----------------------------------------------------------------------------------------
+	%% FOC - 1
+	\begin{equation}	\label{eq:prob1 - FOC1}
+	\begin{aligned}
+		&U'(C_0) - \delta \E[U'(C_1)(R_f + W(R - R_f))]	\\
+		&= be^{-bC_0} - \delta \E[be^{-bC_1}(R_f + W(R - R_f))] = 0	\\
+		&\Rightarrow e^{-bC_0} - \delta \E[e^{-bC_1}(R_f + W(R - R_f))] = 0
+	\end{aligned}
+	\end{equation}
+%----------------------------------------------------------------------------------------
+	%% FOC - 2
+	\begin{equation}	\label{eq:prob1 - FOC2}
+	\begin{aligned}
+		& \delta \E[U'(C_1)(W_0 +y_0 - C_0)(R - R_f)]	\\
+		&= \delta \E[be^{-bC_1}(W_0 + y_0 - C_0)(R - R_f)] = 0	\\
+		&\Rightarrow \delta \E[e^{-bC_1}(W_0 + y_0 - C_0)(R - R_f)] = 0	\\
+		&\Rightarrow \E[e^{-bC_1}R] = R_f \E[e^{-bC_1}]
+	\end{aligned}
+	\end{equation}
+%----------------------------------------------------------------------------------------
+	Plugging (\ref{eq:prob1 - FOC2}) in (\ref{eq:prob1 - FOC1}), equation (\ref{eq:prob1 - FOC3}) is obtained. Therefore, the optimal choice should satisfy (\ref{eq:prob1 - FOC3}).
+%----------------------------------------------------------------------------------------
+	%% FOC - 3
+	\begin{equation}	\label{eq:prob1 - FOC3}
+		e^{-bC_0} = R_f \delta \E[e^{-bC_1}]
+	\end{equation}
+%----------------------------------------------------------------------------------------
+	If we plug $C_1 = y_1 + (W_0 + y_0 - C_0)(R_f + W(R - R_f))$ into (\ref{eq:prob1 - FOC3}), the following equation should hold.
+%----------------------------------------------------------------------------------------
+	%% FOC - 4
+	\begin{equation}	\label{eq:prob1 - FOC4}
+		\E[e^{-by_1} \times e^{-b(W_0 + y_0 - C_0)(R_f + W(R - R_f))}] = \frac{e^{-bC_0}}{R_f \delta}
+	\end{equation}
+%----------------------------------------------------------------------------------------
+	Since the RHS is nonrandom, the optimal portfolio weight $W$ has negative relationship with the future wage income $y_1$.
 	\item		%% Problem 1.b.
+	By using the equation (\ref{eq:prob1 - FOC3}), optimal consumption at time 0 should satisfy the following equation.
+	\begin{equation}	\label{eq:prob1 - C0}
+		C_0 = -b\log(R_f \delta \E[e^{-bC_1}])
+	\end{equation}
 \end{enumerate}
 \end{homeworkProblem}
 

@@ -161,8 +161,44 @@
 \begin{homeworkProblem}
 \begin{enumerate}[a.]
 	\item		%% Problem 2.a.
-	Since the optimal choice satisfies $U_C (C_{T-1}, T-1) - \E_{T-1}[B_W(W_T, T) R_{T - 1}] = 0$, $\delta^{T-1} C_{T-1}^{\gamma - 1} = \E_{T - 1}[\delta^T W_T^{\gamma - 1}]$ satisfies if the given utility function and bequest function is plugged in. Therefore, $C_{T - 1}^{\gamma - 1} = \E_{T - 1}[\delta W_T^{\gamma - 1}] = \E_{T - 1}[\delta(S_{T - 1}R_{T - 1})^{\gamma}]$, $C_{T - 1} = (\E_{T - 1}[\delta(S_{T - 1}R_{T - 1})^\gamma])^{\frac{1}{\gamma - 1}}$ holds.
+	Under the optimal choice, $U_C(C_{T - 1}, T - 1) = \E_{T - 1}[B_W(W_T, T) R_{T - 1}]$ holds. If we plug given utility and bequest function to the equation, the following equation holds.
+%----------------------------------------------------------------------------------------
+	%% FOC - 1
+	\begin{equation} \label{eq:prob2-a: FOC1}
+	\begin{aligned}
+		&\delta^{T - 1} C_{T - 1}^{\gamma - 1} = \E_{T - 1}[\delta^T W_{T}^{\gamma - 1} R_{T - 1}]	\\
+		\Rightarrow \delta^{T - 1} C_{T - 1}^{\gamma - 1} &= \delta^T S_{T - 1}^{\gamma - 1} \E[R_{T - 1}^\gamma] ~~ \text{where~} W_T = S_{T - 1}R_{T - 1}, S_{T - 1} = W_{T - 1} - C_{T - 1}
+	\end{aligned}
+	\end{equation}
+%----------------------------------------------------------------------------------------
+	Therefore, if we rearrange the equation (\ref{eq:prob2-a: FOC1}), the optimal consumption at time $T - 1$, $C_{T - 1}^*$ can be obtained as follows.
+%----------------------------------------------------------------------------------------
+	%% FOC - 2
+	\begin{equation}	\label{eq:prob2-a: FOC2}
+		C_{T - 1}^* = \frac{ \delta^{ \frac{1}{\gamma - 1} } \E_{T - 1}[R_{T - 1}^{\gamma}]^{ \frac{1}{ \gamma - 1 }}}{1 - \delta^{ \frac{1}{\gamma - 1} } \E_{T - 1}[R_{T - 1}^{\gamma}]^{\frac{1}{\gamma - 1}}}W_{T - 1}
+	\end{equation}
+	Another condition under optimal choice is $\E_{T - 1}[B_W(W_T, T) (R_{i, T - 1} - R_f)] = 0$ for $i = 1, 2, 3, \dots , n$. Therefore, the following equation holds.
+%----------------------------------------------------------------------------------------
+	%% FOC - 3
+	\begin{equation}	\label{eq:prob2-a: FOC3}
+	\begin{aligned}
+		&\E_{T - 1}[\delta^T W_T^{\gamma - 1} R_{i, T - 1}] = R_f \E_{T - 1} [\delta^T W_T^{\gamma - 1}]		\\
+		&\Rightarrow \E_{T - 1}[(S_{T - 1} R_{T - 1})^{\gamma - 1} R_{i, T - 1}] = R_f \E_{T - 1} [\delta^T (S_{T - 1} R_{T - 1})^{\gamma -1}]	\\
+		&\Rightarrow \E_{T - 1}[R_{T - 1}^{\gamma - 1} R_{i, T - 1}] = R_f \E_{T - 1}[R_{T - 1}^{\gamma - 1}]
+	\end{aligned}
+	\end{equation}
+%----------------------------------------------------------------------------------------
 	\item		%% Problem 2.b.
+	Let $\delta^{ \frac{1}{\gamma - 1} } \E_{T - 1}[R_{T - 1}^{\gamma}]^{ \frac{1}{ \gamma - 1 }} = a$. Then $C_{T - 1}^* = \frac{a}{1 + a} W_{T - 1}$. Since $J(W_{T - 1}, T - 1) = U(C_{T - 1}^*, T - 1) = \E_{T - 1}[B(W_T, T)]$, $J(W_{T - 1}, T - 1)$ can be represented as follows.
+%----------------------------------------------------------------------------------------
+	%% J Representation
+	\begin{equation}	\label{eq:prob2-b: J representation}
+	\begin{aligned}
+		J(W_{T - 1}, T - 1) 	&= \frac{\delta^{T - 1} C_{T - 1}^{*\gamma}}{\gamma} + \E_{T - 1}[\frac{\delta^T W_T^{\gamma}}{\gamma}]	\\
+						&= \frac{\delta^{T - 1}}{\gamma} (\frac{a}{1 + a}W_{T - 1})^{\gamma} + \frac{\delta^T}{\gamma} \E_{T - 1}[((1 - \frac{a}{1 + a})W_{T - 1}R_{T - 1})^{\gamma}]	\\
+						& = \frac{\delta^{T - 1}}{\gamma} ((\frac{a}{1 + a})^{\gamma} W_{T - 1}^{\gamma} + \delta (\frac{1}{1 + a})^{\gamma} W_{T - 1}^{\gamma} \E_{T - 1}[R_{T - 1}^{\gamma}])
+	\end{aligned}
+	\end{equation}
 	\item 	%% Problem 2.c.
 	\item 	%% Problem 2.d.
 \end{enumerate}

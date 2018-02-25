@@ -196,10 +196,45 @@
 	\begin{aligned}
 		J(W_{T - 1}, T - 1) 	&= \frac{\delta^{T - 1} C_{T - 1}^{*\gamma}}{\gamma} + \E_{T - 1}[\frac{\delta^T W_T^{\gamma}}{\gamma}]	\\
 						&= \frac{\delta^{T - 1}}{\gamma} (\frac{a}{1 + a}W_{T - 1})^{\gamma} + \frac{\delta^T}{\gamma} \E_{T - 1}[((1 - \frac{a}{1 + a})W_{T - 1}R_{T - 1})^{\gamma}]	\\
-						& = \frac{\delta^{T - 1}}{\gamma} ((\frac{a}{1 + a})^{\gamma} W_{T - 1}^{\gamma} + \delta (\frac{1}{1 + a})^{\gamma} W_{T - 1}^{\gamma} \E_{T - 1}[R_{T - 1}^{\gamma}])
+						& = \frac{\delta^{T - 1}}{\gamma} ((\frac{a}{1 + a})^{\gamma} W_{T - 1}^{\gamma} + \delta (\frac{1}{1 + a})^{\gamma} W_{T - 1}^{\gamma} \E_{T - 1}[R_{T - 1}^{\gamma}])	\\
+						&= \frac{\delta^{T - 1}}{\gamma} (\frac{1}{1 + a})^{\gamma} (a^\gamma + \delta \E_{T - 1}[R_{T - 1}^\gamma]) W_{T - 1}^\gamma
 	\end{aligned}
 	\end{equation}
 	\item 	%% Problem 2.c.
+	Let $\frac{1}{1 + a}^\gamma (a^\gamma + \delta \E_{T - 1}[R_{T - 1}^\gamma])= b$. Then $J(W_{T - 1}, T - 1)$ can be represented as $\frac{\delta^{T - 1}}{\gamma} b W_{T - 1}^\gamma$. Since under optimal choice, $U_C(C_{T - 2}, T - 2) = \E_{T - 2}[J_W(W_{T - 1}, T - 1)R_{T - 2}]$ holds, the following equation must hold.
+%----------------------------------------------------------------------------------------
+	%%FOC - 1
+	\begin{equation}	\label{eq:prob2-c: FOC1}
+	\begin{aligned}
+		\delta^{T - 2} C_{T - 2}^{\gamma -1} 	&= \E_{T - 2}[\delta^{T - 1} b W_{T - 1}^{\gamma - 1} R_{T - 2}]	\\
+									&= \delta^{T - 1} b \E_{T - 2}[S_{T - 2}^{\gamma - 1} R_{T - 2}^\gamma]	\\
+									&= \delta^{T - 1} b (W_{T - 2} - C_{T - 2})^{\gamma - 1} \E_{T - 2}[R_{T - 2}^\gamma]		\\
+		C_{T - 2}						&= \delta b (W_{T - 2} - C_{T - 2}) \E_{T - 2}[R_{T - 2}]^{\frac{1}{\gamma -1}}
+	\end{aligned}
+	\end{equation}
+%----------------------------------------------------------------------------------------
+	By rearranging the terms in equation (\ref{eq:prob2-c: FOC1}), we can get an explicit form of $C_{T - 2}^*$ as follows.
+%----------------------------------------------------------------------------------------
+	%%FOC - 2
+	\begin{equation}	\label{eq:prob2-c: FOC2}
+	\begin{aligned}
+		C_{T - 2}^* 	&= \frac{ \delta b \E_{T - 2}[R_{T - 2}^\gamma]^{\frac{1}{\gamma - 1}} }{1 + \delta b \E_{T - 2}[R_{T - 2}^\gamma]^{\frac{1}{\gamma - 1}} } W_{T - 2}	\\
+					&= \frac{c}{1 + c} W_{T - 2} ~~ \text{where}~ c = \delta b \E_{T - 2}[R_{T - 2}^\gamma]^{\frac{1}{\gamma - 1}}
+	\end{aligned}
+	\end{equation}
+	Another optimal condition is $\E_{T - 2}[R_{i, T - 2} J_W(W_{T - 1}, T - 1)] = R_f \E_{T - 2}[J_W(W_{T - 1}, T - 1)]$. Therefore, the following equations hold.%----------------------------------------------------------------------------------------
+	%%FOC - 3
+	\begin{equation}
+	\begin{aligned}
+		&\E_{T - 2}[R_{i, T - 2} \delta^{T - 1} b W_{T - 1}^{\gamma - 1}] = R_f \E_{T - 2}[\delta^{T - 1} b W_{T - 1}^{\gamma - 1}]	\\
+		&\Rightarrow \E_{T - 2}[R_{i, T - 2} W_{T - 1}^{\gamma - 1}] = R_f \E_{T - 2} [W_{T - 1}^{\gamma - 1}]	\\
+		&\Rightarrow \E_{T - 2}[R_{i, T - 2} (S_{T - 2} R_{T - 2})^{\gamma - 1}] = R_f \E_{T - 2} [(S_{T - 2} R_{T - 2})^{\gamma - 1}]	\\
+		&\Rightarrow \E_{T - 2}[R_{i, T - 2} R_{T - 2}^{\gamma - 1}] = R_f \E_{T - 2} [R_{T - 2}^{\gamma - 1}]
+	\end{aligned}
+	\end{equation}
+	
+%----------------------------------------------------------------------------------------
+	
 	\item 	%% Problem 2.d.
 \end{enumerate}
 \end{homeworkProblem}

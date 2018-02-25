@@ -234,8 +234,21 @@
 	\end{equation}
 	
 %----------------------------------------------------------------------------------------
-	
 	\item 	%% Problem 2.d.
+	Since $J(W_{T - 2}, T - 2) = U(C_{T - 2}^*, T - 2) + \E_{T - 2}[J(W_{T - 1}, T - 1)]$, the following equation holds.
+%----------------------------------------------------------------------------------------
+	%% J Representation
+	\begin{equation}
+	\begin{aligned}
+		J(W_{T - 2}, T - 2) 	&=\frac{\delta^{T - 2} C_{T - 2}^{* \gamma}}{\gamma} + \E_{T - 2}[\frac{\delta^{T - 1}}{\gamma} b W_{T - 1}^\gamma]	\\
+						&= \frac{\delta^{T - 2}}{\gamma} (\frac{c}{1 + c})^{\gamma} W_{T - 2}^{\gamma} + \E_{T - 2}[\frac{\delta^{T - 1}}{\gamma} b (W_{T - 2} - C_{T - 2})^{\gamma} R_{T - 2}^{\gamma}]	\\
+						&= \frac{\delta^{T - 2}}{\gamma} (\frac{c}{1 + c})^{\gamma} W_{T - 2}^{\gamma} + \E_{T - 2}[\frac{\delta^{T - 1}}{\gamma} b (\frac{1}{1 + c})^{\gamma} W_{T - 2}^{\gamma} R_{T -2}^{\gamma}]	\\
+						&= \frac{\delta^{T - 2}}{\gamma} (\frac{1}{1 + c})^{\gamma} ((c^{\gamma} + \delta b) W_{T - 2}^{\gamma} \E_{T -2} [R_{T - 2}^{\gamma}])	\\
+						&= \frac{\delta^{T - 2}}{\gamma} d W_{T - 2}^{\gamma} ~~ \text{where~} d = (\frac{1}{1 + c})^{\gamma} (c^{\gamma} + \delta b) \E_{T - 2}[R_{T - 2}^{\gamma}]
+	\end{aligned}
+	\end{equation}
+%----------------------------------------------------------------------------------------
+	From the pattern, the optimal consumption at $T - t$ is $kW_{T - t}$ for some constant $k$, and the optimal portfolio weight satisfies $\E_{T - t}[R_{i, T - t} R_{T - t}^{\gamma - 1}] = R_f \E_{T - t} [R_{T - t}^{\gamma - 1}]$.
 \end{enumerate}
 \end{homeworkProblem}
 \end{document}

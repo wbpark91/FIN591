@@ -151,7 +151,31 @@
 \begin{homeworkProblem}
 \begin{enumerate}[a.]
 	\item		%% Problem 1.a.
-	Since there is only one risky asset, consumption at date 1 $C_1$ is represented as $C_1 = y_1 + (W_0 + y_0 - C_0)(R_f + W(R - R_f))$. By applying first order condition, the following equations should hold.
+	Since there is only one risky asset, consumption at date 1, $C_1$ is represented as $C_1 = y_1 + (W_0 + y_0 - C_0)(R_f + W(R - R_f))$. Let $S_0 = W_0 + y_0 + C_0$. Then since $y_1 \sim N(\bar{y}, \sigma_y^2)$ and $R \sim N(\bar{R}, \sigma^2)$, $\E[C_1] = \bar{y} + S_0(R_f + W(\bar{R} - R_f))$ and $\Var[C_1] = \sigma_y^2 + S_0^2 W^2 \sigma^2 + 2S_0\rho \sigma \sigma_y W$. Therefore, expected utility satisfy equation (\ref{eq:prob1 - Expected Utility}).
+%----------------------------------------------------------------------------------------
+	%% EXPECTED UTILITY
+	\begin{equation} 	\label{eq:prob1 - Expected Utility}
+	\begin{aligned}
+		&e^{-bC_0} - \delta \E[e^{-bC_1}] \\
+		=& e^{-bC_0} - \delta \exp(-b(\bar{y} + S_0(R_f + W(\bar{R} - R_f))) + \frac{1}{2}b^2(\sigma_y^2 + S_0^2 W^2 \sigma^2 + 2S_0\rho \sigma \sigma_y W))
+	\end{aligned}
+	\end{equation}
+%----------------------------------------------------------------------------------------
+	Since $e^{-bC_0}$ does not depend on $W$, $\underset{W}{\max} e^{-bC_0} - \delta \E[e^{-bC_1}]$ is equivalent to minimize $-b(\bar{y} + S_0(R_f + W(\bar{R} - R_f))) + \frac{1}{2}b^2(\sigma_y^2 + S_0^2 W^2 \sigma^2 + 2S_0\rho \sigma \sigma_y W)$. Applying first order condition leads to equation (\ref{eq:prob1 - FOC-W}).
+%----------------------------------------------------------------------------------------
+	%% FOC - W
+	\begin{equation}	\label{eq:prob1 - FOC-W}
+	\begin{aligned}
+		&-bS_0(\bar{R} - R_f) + \frac{1}{2}b^2(2S_0^2 \sigma^2 W + 2S_0 \rho \sigma \sigma_y) = 0	\\
+		&\Rightarrow -(\bar{R} - R_f) + bS_0 \sigma^2W + b\rho \sigma \sigma_y = 0	\\
+		&\Rightarrow W = \frac{\bar{R} - R_f - b \rho \sigma \sigma_y}{bS_0 \sigma^2}
+	\end{aligned}
+	\end{equation}
+%----------------------------------------------------------------------------------------
+	The equation (\ref{eq:prob1 - FOC-W}) shows that the weight on risky asset is negatively correlated with volatility of future wage income if correlation between return of risky asset and future wage income is positive and vice versa. Furthermore, the weight increases if correlation between return of risky asset and future wage income decreases, and the weight decreases if the correlation increases.
+%----------------------------------------------------------------------------------------	
+	\item		%% Problem 1.b.
+	Applying first order condition on expected utility, equation (\ref{eq:prob1 - FOC1}) and (\ref{eq:prob1 - FOC2}) are obtained.
 %----------------------------------------------------------------------------------------
 	%% FOC - 1
 	\begin{equation}	\label{eq:prob1 - FOC1}
@@ -179,19 +203,30 @@
 		e^{-bC_0} = R_f \delta \E[e^{-bC_1}]
 	\end{equation}
 %----------------------------------------------------------------------------------------
-	If we plug $C_1 = y_1 + (W_0 + y_0 - C_0)(R_f + W(R - R_f))$ into (\ref{eq:prob1 - FOC3}), the following equation should hold.
-%----------------------------------------------------------------------------------------
-	%% FOC - 4
-	\begin{equation}	\label{eq:prob1 - FOC4}
-		\E[e^{-by_1} \times e^{-b(W_0 + y_0 - C_0)(R_f + W(R - R_f))}] = \frac{e^{-bC_0}}{R_f \delta}
-	\end{equation}
-%----------------------------------------------------------------------------------------
-	Since the RHS is nonrandom, the optimal portfolio weight $W$ has negative relationship with the future wage income $y_1$.
-	\item		%% Problem 1.b.
 	By using the equation (\ref{eq:prob1 - FOC3}), optimal consumption at time 0 should satisfy the following equation.
 	\begin{equation}	\label{eq:prob1 - C0}
-		C_0 = -b\log(R_f \delta \E[e^{-bC_1}])
+	\begin{aligned}
+		C_0 	&= -b\log(R_f \delta \E[e^{-bC_1}])	\\
+			&= -b\log(R_f \delta) - b\log \E[e^{-bC_1}]
+	\end{aligned}
 	\end{equation}
+	By (\ref{eq:prob1 - Expected Utility}), $\log \E[e^{-bC_1}]$ is represented as  $-b(\bar{y} + S_0(R_f + W(\bar{R} - R_f))) + \frac{1}{2}b^2(\sigma_y^2 + S_0^2 W^2 \sigma^2 + 2S_0\rho \sigma \sigma_y W)$. Applying $S_0 = W_0 + y_0 + C_0$, the following equation holds.
+%----------------------------------------------------------------------------------------
+	%% Log Expectation
+	\begin{equation}	\label{eq:prob1 - log expectation}
+	\begin{aligned}
+		\log &\E[e^{-bC_1}]\\
+		& = -b(\bar{y} + (W_0 + y_0 - C_0)(R_f + W(\bar{R} - R_f))) \\
+		& ~~+ \frac{1}{2}b^2(\sigma_y^2 + (W_0 + y_0 - C_0)^2 W^2 \sigma^2 + 2(W_0 + y_0 - C_0)\rho \sigma \sigma_y W)	\\
+		&= -b \bar{y} + \frac{1}{2}b^2 \sigma^2_y + \frac{1}{2}b^2(W_0 + y_0)W^2 \sigma^2 - b(W_0 + y_0)(R_f + W(\bar{R} - R_f)) + b^2(W_0 + y_0)\rho \sigma \sigma_y \\ 
+		&~~ -\frac{1}{2}b^2 W^2 \sigma^2 C_0  - b^2 \rho \sigma \sigma_y C_0  + b(R_f + W(\bar{R} - R_f))C_0 \\
+		&= A + B C_0 \\
+		&~\text{where~} A = -b \bar{y} + \frac{1}{2}b^2 \sigma^2_y + \frac{1}{2}b^2(W_0 + y_0)W^2 \sigma^2 - b(W_0 + y_0)(R_f + W(\bar{R} - R_f)) + b^2(W_0 + y_0)\rho \sigma \sigma_y \\
+		& B = -\frac{1}{2}b^2 W^2 \sigma^2  - b^2 \rho \sigma \sigma_y + b(R_f + W(\bar{R} - R_f))
+	\end{aligned}
+	\end{equation}
+%----------------------------------------------------------------------------------------	
+	Since $C_0 = -b\log(R_f \delta) - b\log \E[e^{-bC_1}] = -b\log(R_f \delta) -b(A + B C_0)$, $C_0 = \frac{-b\log(R_f \delta) - bA}{1 + bB}$.
 \end{enumerate}
 \end{homeworkProblem}
 

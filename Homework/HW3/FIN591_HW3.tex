@@ -197,6 +197,54 @@
         Since $\mu_c , k, \lambda$ are constant, instantaneous risk free rate
         is constant.
         \item   %% d.
+
+    \end{enumerate}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{enumerate}[a.]
+        \item   %% a.
+        Considering the process of risky asset price, intertemporal budget
+        constraint is derived as follows.
+        \begin{equation}
+            \begin{aligned}
+                dW  &= \omega \frac{dS}{S} + (1 - \omega) rdt   \\
+                    &= (\omega(\mu - \lambda k - r)W + rW)dt + \sigma W dZ
+                        + \omega(Y - 1)Wdq
+            \end{aligned}
+            \label{eq:prob2-a}
+        \end{equation}
+        \item   %% b.
+        Investors maximize $\E_0[\int_0^T e^{-\phi t}u(C_t)dt]$, subject to
+        $dW = (\omega(\mu - \lambda k - r)W + rW)dt + \sigma W dZ
+            + \omega(Y - 1)Wdq$.
+        Let $J(W, s) = \max_{c, \omega} \E_s[\int_0^T e^{-\phi t}u(c_t)dt]$. Then the
+        following equation follows.
+        \begin{equation}
+            \begin{aligned}
+                J(W, 0) &= \max_{c, \omega} \E_0 \left[ \int_0^{\Delta t} e^{-\phi t}u(c_t)dt
+                                    + J(W, \Delta t) \right]    \\
+                        &= \max_{c, \omega} \E_0 [ u(c_0)\Delta t
+                        + J(W, 0) + J_W(\omega(\mu - \lambda k - r)W + rW)\Delta t  \\
+                        &+ \frac{1}{2} \sigma^2 J_{WW}\Delta t
+                        + (J(\omega(Y - 1)W, 0) - J(W, 0))dq ]
+            \end{aligned}
+            \label{eq:prob2-b-1}
+        \end{equation}
+        Letting $\Delta t \to 0$, equation (\ref{eq:prob2-b-1}) becomes
+        equation (\ref{eq:prob2-b-2})
+        \begin{equation}
+            \begin{aligned}
+                0 = u(c_0) + J_W(\omega(\mu - \lambda k - r)W + rW)
+                 + \frac{1}{2} \sigma^2 J_{WW} + \lambda(J(\omega(Y - 1)W, 0) - J(W, 0))
+            \end{aligned}
+            \label{eq:prob2-b-2}
+        \end{equation}
+        \item   %% c.
     \end{enumerate}
 \end{homeworkProblem}
 \end{document}

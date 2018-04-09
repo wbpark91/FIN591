@@ -165,7 +165,7 @@
         From $P_t(\tau) = \E_t\left[ \frac{e^{-\phi(t + \tau)} C_{t + \tau}^{\gamma - 1}}{e^{\phi t} C_t^{\gamma - 1}} \right]$,
         we can find that process $M_t$ is equal to $e^{-\phi t}C_t^{\gamma - 1}$.
         Therefore, using Ito's lemma, dynamics of $M_t$ can be derived as
-        equation (\ref{eq:prob2}).
+        equation (\ref{eq:prob1-b}).
         \begin{equation}
             \begin{aligned}
                 dM_t    &= -\phi e^{-\phi t} C^{\gamma - 1}dt
@@ -178,9 +178,24 @@
                             + \frac{1}{2}(\gamma - 1)(\gamma - 2) \sigma_c^2]Mdt
                             + (\gamma - 1)\sigma_c M dZ_c + (Y^{\gamma - 1} - 1)Mdq
             \end{aligned}
-            \label{eq:prob2}
+            \label{eq:prob1-b}
         \end{equation}
         \item   %% c.
+        Since $\E \left[ \frac{dM}{M} \right] = -rdt$, the following equation holds.
+        \begin{equation}
+            \begin{aligned}
+                r   &= -\E \left[ \frac{dM}{M} \right]  \\
+                    &= \phi - (\gamma - 1)(\mu_c - \lambda k)
+                        - \frac{1}{2} (\gamma - 1)(\gamma - 2) \sigma_c^2
+                        - \lambda \E[e^{(\gamma - 1) \log Y} - 1]   \\
+                    &= \phi - (\gamma - 1)(\mu_c - \lambda k)
+                        - \frac{1}{2} (\gamma - 1)(\gamma - 2) \sigma_c^2
+                        - \lambda (e^{(\gamma - 1) \alpha + \frac{1}{2} (\gamma - 1)^2 \delta^2} - 1)
+            \end{aligned}
+            \label{eq:prob1-c}
+        \end{equation}
+        Since $\mu_c , k, \lambda$ are constant, instantaneous risk free rate
+        is constant.
         \item   %% d.
     \end{enumerate}
 \end{homeworkProblem}

@@ -232,7 +232,7 @@
             \E_t[e^{(\gamma - 1) \log(C_s/C_t)}] =
             e^{(\gamma - 1)(\mu_c - \frac{1}{2}\sigma_c^2 - \lambda k)(s - t)
             + \frac{1}{2} (\gamma - 1)^2 \sigma_c^2 (s - t)
-            + (\gamma - 1) (\alpha + \frac{1}{2} \delta^2) (s - t)}
+            + (\gamma - 1) \alpha (s - t) + \frac{1}{2} (\gamma - 1)^2 \delta^2 (s - t)}
             \label{eq:prob1-d-expected logC}
         \end{equation}
         Applying the result from equation (\ref{eq:prob1-d-expected logC})
@@ -244,14 +244,16 @@
                 \frac{S_t}{D_t} &=
                 \int_t^\infty {e^{-(s - t)[\phi + (1 - \gamma)(\mu_c - \frac{1}{2}\sigma_c^2 - \lambda k)
                 + \frac{1}{2}(1 - \gamma)^2 \sigma_c^2
-                + (1 - \gamma)(\alpha + \frac{1}{2} \delta^2)
+                + (1 - \gamma)\alpha
+                + \frac{1}{2} (1 - \gamma)^2 \delta^2
                 - \mu_d + (1 - \gamma) \rho \sigma_c \sigma_d]}} ds \\
                 &=
                 \left. -\frac{1}{A} e^{-(s - t)A} \right \rvert_{t}^{\infty}
                 = \frac{1}{A}   \\
                 A &= \phi + (1 - \gamma)(\mu_c - \frac{1}{2}\sigma_c^2 - \lambda k)
                 + \frac{1}{2}(1 - \gamma)^2 \sigma_c^2
-                + (1 - \gamma)(\alpha + \frac{1}{2} \delta^2)
+                + (1 - \gamma)\alpha
+                + \frac{1}{2} (1 - \gamma)^2 \delta^2
                 - \mu_d + (1 - \gamma) \rho \sigma_c \sigma_d
             \end{aligned}
             \label{eq:prob1-d-solution}
@@ -270,35 +272,38 @@
         constraint is derived as follows.
         \begin{equation}
             \begin{aligned}
-                dW  &= \omega \frac{dS}{S} + (1 - \omega) rdt - Cdt   \\
-                    &= (\omega(\mu - \lambda k - r)W + rW - C)dt + \sigma W dZ
-                        + \omega(Y - 1)Wdq
+                dW  &= \omega_t \frac{dS}{S} + (1 - \omega_t) rdt - C_tdt   \\
+                    &= (\omega_t(\mu - \lambda k - r)W_t + rW_t - C_t)dt + \sigma \omega_t W_t dz
+                        + \omega_t W_t (Y_t - 1)dq
             \end{aligned}
             \label{eq:prob2-a}
         \end{equation}
         \item   %% b.
         Investors maximize $\E_0[\int_0^T e^{-\phi t}u(C_t)dt]$, subject to
-        $dW = (\omega(\mu - \lambda k - r)W + rW)dt + \sigma W dZ
-            + \omega(Y - 1)Wdq$.
-        Let $J(W, s) = \max_{C, \omega} \E_s[\int_0^T e^{-\phi t}u(C_t)dt]$. Then the
+        the equation (\ref{eq:prob2-a}). \\
+        Let $J(W_t, t) = \max_{C_t, \omega_t} \E_t[\int_t^T e^{-\phi s}u(C_s)ds]$. Then the
         following equation follows.
         \begin{equation}
             \begin{aligned}
-                J(W, 0) &= \max_{C, \omega} \E_0 \left[ \int_0^{\Delta t} e^{-\phi t}u(C_t)dt
-                                    + J(W, \Delta t) \right]    \\
-                        &= \max_{C, \omega} \E_0 [ u(C_0)\Delta t
-                        + J(W, 0) + J_W(\omega(\mu - \lambda k - r)W + rW - C)\Delta t  \\
-                        &+ \frac{1}{2} \omega^2 \sigma^2 J_{WW}\Delta t
-                        + (J(\omega(Y - 1)W, 0) - J(W, 0))dq ]
+                J(W_t, t) &= \max_{C_t, \omega_t} \E_t \left[ \int_t^{t + \Delta t} e^{-\phi s}u(C_s)ds
+                                    + J(W_{t + \Delta t}, t + \Delta t) \right]    \\
+                        &= \max_{C_t, \omega_t} \E_t [ u(C_t)\Delta t
+                        + J(W_t, t) + J_t \Delta t + J_W(\omega_t(\mu - \lambda k - r)W_t + rW_t - C_t)\Delta t  \\
+                        &+ \frac{1}{2} \omega_t^2 W_t^2 \sigma^2 J_{WW}\Delta t
+                        + (J(1 + \omega_t W_t (Y_t - 1), t) - J(W_t, t))dq ],
+                        ~~~~ (t \in [0, T])
             \end{aligned}
             \label{eq:prob2-b-1}
         \end{equation}
         Letting $\Delta t \to 0$, equation (\ref{eq:prob2-b-1}) becomes
-        equation (\ref{eq:prob2-b-2}), and it is Bellman equation.
+        equation (\ref{eq:prob2-b-2}), and it is the Bellman equation.
         \begin{equation}
             \begin{aligned}
-                0 = \max_{C, \omega} [u(c_0) + J_W(\omega(\mu - \lambda k - r)W + rW - C)
-                 + \frac{1}{2} \omega^2 \sigma^2 J_{WW} + \lambda(\E[J(\omega(Y - 1)W, 0)] - J(W, 0))]
+                0   &= \max_{C, \omega} [u(C_t) + L(J)]    \\
+                L(J) &=
+                J_t + J_W(\omega_t W_t (\mu - \lambda k - r) + rW_t - C_t)
+                 + \frac{1}{2} \omega_t^2 W_t^2 \sigma^2 J_{WW}
+                 + \lambda \E_t[J(1 + \omega_t W_t (Y_t - 1), t) - J(W_t, t)]
             \end{aligned}
             \label{eq:prob2-b-2}
         \end{equation}
@@ -307,9 +312,9 @@
         the following equation holds.
         \begin{equation}
             \begin{aligned}
-                u_c     = J_W  \\
-                J_W(\mu - \lambda k - r)W + \omega \sigma^2 J_{WW} +
-                \frac{\partial}{\partial \omega}(\lambda(\E[J(\omega(Y - 1)W, 0)] - J(W, 0))]) = 0
+                &u_C     = J_W  \\
+                &J_W W_t(\mu - \lambda k - r) + \omega_t W_t^2 \sigma^2 J_{WW} +
+                \lambda \E_t[W_t (Y_t - 1) J_W(1 + \omega_t W_t (Y_t - 1), t)] = 0
             \end{aligned}
             \label{eq:prob2-c}
         \end{equation}

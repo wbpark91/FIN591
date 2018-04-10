@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.24)  8 APR 2018 22:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.24)  10 APR 2018 17:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -214,15 +214,15 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 AED: lastpage setting LastPage
 [3] (./FIN591_HW3.aux) ) 
 Here is how much of TeX's memory you used:
- 2582 strings out of 493014
- 34707 string characters out of 6133351
- 205416 words of memory out of 5000000
- 6095 multiletter control sequences out of 15000+600000
+ 2586 strings out of 493014
+ 34801 string characters out of 6133351
+ 205450 words of memory out of 5000000
+ 6099 multiletter control sequences out of 15000+600000
  9321 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,43p,305b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,11n,43p,305b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on FIN591_HW3.pdf (3 pages, 128878 bytes).
+Output written on FIN591_HW3.pdf (3 pages, 138647 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  44 compressed objects within 1 object stream

@@ -197,7 +197,65 @@
         Since $\mu_c , k, \lambda$ are constant, instantaneous risk free rate
         is constant.
         \item   %% d.
-
+        Since an asset price is equal to sum of discounted future payoffs,
+        assuming some regularity conditions hold, $S_t$ is represented as follows.
+        \begin{equation}
+            \begin{aligned}
+            S_t     &= \E_t\left[ \int_t^\infty \frac{M_s}{M_t} D_s ds \right]  \\
+                    &= \E_t\left[ \int_t^\infty \frac{e^{-\phi s} C_s^{\gamma - 1}}{e^{-\phi t} C_t^{\gamma - 1}} D_s ds \right] \\
+            \Rightarrow \frac{S_t}{D_t} &= \E_t \left[ \int_t^\infty e^{-\phi(s - t)}
+            \left( \frac{C_s}{C_t} \right)^{\gamma - 1} \left( \frac{D_s}{D_t} \right) ds \right]   \\
+                    &= \E_t \left[ \int_t^\infty e^{-\phi(s - t)
+                    + (\gamma - 1)\log(C_s / C_t) + \log(D_s / D_t)} ds \right] \\
+                    &= \int_t^\infty \E_t \left[ e^{-\phi(s - t)
+                    + (\gamma - 1)\log(C_s / C_t) + \log(D_s / D_t)} ds \right]
+            \end{aligned}
+            \label{eq:prob1-d-represent s}
+        \end{equation}
+        Considering the process of $C_t$, $\E_t[e^{(\gamma - 1) \log(C_s/C_t)}]$ is calculated
+        as follows.
+        \begin{equation}
+            \begin{aligned}
+                \E_t[e^{(\gamma - 1) \log(C_s/C_t)}] &= \E_t \left[
+                e^{(\gamma - 1)(\mu_c - \frac{1}{2}\sigma_c^2 - \lambda k)(s - t)
+                + \frac{1}{2} (\gamma - 1)^2 \sigma_c^2 (s - t) + (\gamma - 1) \log y(s, t)}
+                \right] \\
+                y(s, t) &= \prod_{i = s}^t Y_i
+            \end{aligned}
+            \label{eq:prob1-d-expected C}
+        \end{equation}
+        Since $\log y(s, t) = \sum_{i = s}^{t} \log Y_i$, and $\log Y_i$'s are independently
+        and identically distributed as $N(\alpha, \delta^2)$, $\log(C_s/C_t)$ is also
+        normally distributed, and its expected value from equation
+        (\ref{eq:prob1-d-expected C}) is calculated as follows.
+        \begin{equation}
+            \E_t[e^{(\gamma - 1) \log(C_s/C_t)}] =
+            e^{(\gamma - 1)(\mu_c - \frac{1}{2}\sigma_c^2 - \lambda k)(s - t)
+            + \frac{1}{2} (\gamma - 1)^2 \sigma_c^2 (s - t)
+            + (\gamma - 1) (\alpha + \frac{1}{2} \delta^2) (s - t)}
+            \label{eq:prob1-d-expected logC}
+        \end{equation}
+        Applying the result from equation (\ref{eq:prob1-d-expected logC})
+        and considering the correlation between $z_d$ and $z_c$ is $\rho$,
+        $\frac{S_t}{D_t}$ from equation (\ref{eq:prob1-d-represent s})
+        is solved as follows.
+        \begin{equation}
+            \begin{aligned}
+                \frac{S_t}{D_t} &=
+                \int_t^\infty {e^{-(s - t)[\phi + (1 - \gamma)(\mu_c - \frac{1}{2}\sigma_c^2 - \lambda k)
+                + \frac{1}{2}(1 - \gamma)^2 \sigma_c^2
+                + (1 - \gamma)(\alpha + \frac{1}{2} \delta^2)
+                - \mu_d + (1 - \gamma) \rho \sigma_c \sigma_d]}} ds \\
+                &=
+                \left. -\frac{1}{A} e^{-(s - t)A} \right \rvert_{t}^{\infty}
+                = \frac{1}{A}   \\
+                A &= \phi + (1 - \gamma)(\mu_c - \frac{1}{2}\sigma_c^2 - \lambda k)
+                + \frac{1}{2}(1 - \gamma)^2 \sigma_c^2
+                + (1 - \gamma)(\alpha + \frac{1}{2} \delta^2)
+                - \mu_d + (1 - \gamma) \rho \sigma_c \sigma_d
+            \end{aligned}
+            \label{eq:prob1-d-solution}
+        \end{equation}
     \end{enumerate}
 \end{homeworkProblem}
 

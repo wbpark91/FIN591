@@ -149,7 +149,41 @@
 %	PROBLEM 1
 %----------------------------------------------------------------------------------------
 \begin{homeworkProblem}
-
+    Assuming $\theta = 1$, $V_t$ is represented as follows.
+    \begin{equation}
+        V_t = [C_t^{\gamma} + \delta E_t[V_{t+1}^{\gamma}]]^{\frac{1}{\gamma}}
+        \label{eq:prob1-v_t representation}
+    \end{equation}
+    Solving the difference equation iteratively, we can solve $V_t$ as follows.
+    \begin{equation}
+        \begin{aligned}
+            V_t &= [C_t^{\gamma} + \delta \E_t[V_{t+1}^{\gamma}]]^{\frac{1}{\gamma}} \\
+                &= [C_t^{\gamma} + \delta \E_t[
+                    \{ C_{t+1}^{\gamma} + \delta \E_{t+1}[V_{t+2}^{\gamma}]^{\gamma \times \frac{1}{\gamma}} \}
+                ]]^{\frac{1}{\gamma}}   \\
+                &= [C_t^{\gamma} + \delta \E_t[
+                    C_{t+1}^{\gamma} + \delta \E_{t+1}[V_{t+2}^{\gamma}
+                    ]
+                ]^{\frac{1}{\gamma}}    \\
+                &= [C_t^{\gamma} + \delta \E_t[C_{t+1}^{\gamma}] + \delta^2 \E_t[V_{t+2}^{\gamma}]]^{\frac{1}{\gamma}}
+        \end{aligned}
+        \label{eq:prob1-v_t representation2}
+    \end{equation}
+    Using this procedure iteratively, $V_t$ is derived as follows.
+    \begin{equation}
+        \begin{aligned}
+            V_t &= [C_t^{\gamma} + \delta \E_t[C_{t+1}^{\gamma}]
+                + \delta^2 \E_t[C_{t+2}^{\gamma}]
+                + \delta^3 \E_t[C_{t+3}^{\gamma}]
+                + \delta^4 \E_t[C_{t+4}^{\gamma}]
+                + \dots
+            ]^{\frac{1}{\gamma}}   \\
+                &= \sum_{i = t}^{\infty} \delta^i \E_t [C_i^{\gamma}]^{\frac{1}{\gamma}}
+        \end{aligned}
+    \end{equation}
+    Considering the discrete-time version of power utility
+    $U(C_t, t) = \delta^t \times C_t^{\gamma} / \gamma$, $\gamma V_t^{\gamma}$
+    implies a lifetime utility function.
 \end{homeworkProblem}
 
 %----------------------------------------------------------------------------------------
